@@ -1,0 +1,5 @@
+[k8s_nodes]
+kubo1 ansible_host=127.0.0.1 ansible_port=2231
+kubo2 ansible_host=127.0.0.1 ansible_port=2232
+kubo3 ansible_host=127.0.0.1 ansible_port=2233
+

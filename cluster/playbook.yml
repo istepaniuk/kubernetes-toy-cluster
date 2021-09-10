@@ -1,0 +1,8 @@
+---
+
+- name: Provision Mitula hadoop servers
+  become: true
+  hosts:
+    - k8s_nodes
+  roles:
+    - k8s-node

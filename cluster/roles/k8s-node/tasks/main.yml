@@ -1,0 +1,32 @@
+---
+
+- name: Install apt dependencies
+  apt:
+    name:
+      - apt-transport-https
+      - software-properties-common
+      - ca-certificates
+      - curl
+    state: present
+
+- name: Adding k8s's apt repository signing Key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: Add k8s's repository
+  apt_repository:
+    repo: deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+    update_cache: true
+    filename: kubernetes
+
+- name: Install k8s packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - kubelet
+    - kubeadm
+    - kubectl
+  ignore_errors: "{{ ansible_check_mode }}"
