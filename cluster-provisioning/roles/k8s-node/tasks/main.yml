@@ -1,5 +1,17 @@
 ---
 
+- name: Making sure we use iptables-legacy
+  # see https://github.com/kubernetes/kops/issues/7379
+  alternatives:
+    name: iptables
+    path: /usr/sbin/iptables-legacy
+
+- name: Making sure we use ip6tables-legacy
+  # see https://github.com/kubernetes/kops/issues/7379
+  alternatives:
+    name: ip6tables
+    path: /usr/sbin/ip6tables-legacy
+
 - name: Install apt dependencies
   apt:
     name:

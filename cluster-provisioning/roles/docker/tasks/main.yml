@@ -6,7 +6,9 @@
       - apt-transport-https
       - software-properties-common
       - ca-certificates
+      - lsb-release
       - curl
+      - gpg
     state: present
 
 - name: Adding docker's apt repository signing Key
@@ -16,7 +18,7 @@
 
 - name: Add docker's repository
   apt_repository:
-    repo: deb https://download.docker.com/linux/debian bullseye stable
+    repo: deb https://download.docker.com/linux/debian buster stable
     state: present
     update_cache: true
     filename: docker
@@ -24,13 +26,16 @@
 - name: Install docker packages
   apt:
     name:
+      - containerd.io
       - docker-ce
+      - docker-ce-cli
     state: present
   ignore_errors: "{{ ansible_check_mode }}"
 
-- name: Ensure kubelet is running
-  service:
-    name: kubelet
-    state: started
-    enabled: true
-
+- name: Set docker cgroup driver to systemd
+  copy:
+    src: ../files/daemon.json
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+  notify: restart_docker

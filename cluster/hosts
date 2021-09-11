@@ -1,5 +1,0 @@
-[k8s_nodes]
-kubo1 ansible_host=192.168.178.231
-kubo2 ansible_host=192.168.178.232
-kubo3 ansible_host=192.168.178.233
-

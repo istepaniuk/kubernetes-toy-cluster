@@ -1,6 +1,6 @@
 ---
 
-- name: Provision Mitula hadoop servers
+- name: Provision Kubernetes Nodes
   become: true
   hosts:
     - k8s_nodes
