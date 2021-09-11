@@ -9,24 +9,22 @@
       - curl
     state: present
 
-- name: Adding k8s's apt repository signing Key
+- name: Adding docker's apt repository signing Key
   apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    url: https://download.docker.com/linux/debian/gpg
     state: present
 
-- name: Add k8s's repository
+- name: Add docker's repository
   apt_repository:
-    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    repo: deb https://download.docker.com/linux/debian bullseye stable
     state: present
     update_cache: true
-    filename: kubernetes
+    filename: docker
 
-- name: Install k8s packages
+- name: Install docker packages
   apt:
     name:
-      - kubelet
-      - kubeadm
-      - kubectl
+      - docker-ce
     state: present
   ignore_errors: "{{ ansible_check_mode }}"
 
