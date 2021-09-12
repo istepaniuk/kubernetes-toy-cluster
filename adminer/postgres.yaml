@@ -11,15 +11,6 @@ data:
   POSTGRES_USER: testing
   POSTGRES_PASSWORD: testing
 
-#---
-
-#apiVersion: storage.k8s.io/v1
-#kind: StorageClass
-#metadata:
-#  name: local-storage
-#provisioner: kubernetes.io/no-provisioner
-#volumeBindingMode: WaitForFirstConsumer
-
 ---
 
 apiVersion: v1
