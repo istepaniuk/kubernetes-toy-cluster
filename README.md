@@ -3,9 +3,8 @@
 > WARNING: This is not really a step-by-step guide. YMMV. Do not try this at home. 
 > Keep away from children. 
 
-This is a sort of log I kept while banging my head against the keyboard, 
-down the complexity rabbit-hole and the many gotchas that setting up a
-home-grown kubernetes in a couple "bare-metal" nodes (actually VMs).
+This is a sort of log I kept while ~~banging my head against the keyboard~~
+setting up a home-grown kubernetes cluster in "bare-metal" nodes (actually VMs). 
 
 ## Preparation
 
