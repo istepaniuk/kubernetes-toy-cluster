@@ -31,8 +31,7 @@ this document.  I added the static IPs from these 3 VMs in my laptop's /etc/host
 
 ## Init the cluster
 
-It would be a good idea to make a snapshot of your VM before you continue, 
-it is not always easy to just try again if something did not work. Other than 
+It is not always easy to just try again if something did not work. Other than 
 reverting to a snapshot, this should bring you back to where you started:
 
    
@@ -49,7 +48,7 @@ reverting to a snapshot, this should bring you back to where you started:
     # apt install kubelet kubeadm
 
 
-In the node that is going to have the control-plane:
+Now, to init the cluster, in the node that is going to have the control-plane:
 
     kubo1# kubeadm init --pod-network-cidr=10.244.0.0/16
 
