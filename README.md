@@ -26,7 +26,7 @@ You need to install docker and kubernetes. Set up the VMs so you can log in and 
 > This is a good moment to make a snapshot of that VM!
 
 Run the ansible playbook in `/cluster-provisioning/playbook.yml`.
-The inventory in /cluster-provisioning/hosts` assumes 3 nodes named kubo1, kubo2 and kubo3, and so does the rest of 
+The inventory in `/cluster-provisioning/hosts` assumes 3 nodes named kubo1, kubo2 and kubo3, and so does the rest of 
 this document.  I added the static IPs from these 3 VMs in my laptop's /etc/hosts file.
 
 ## Init the cluster
@@ -34,6 +34,9 @@ this document.  I added the static IPs from these 3 VMs in my laptop's /etc/host
 It would be a good idea to make a snapshot of your VM before you continue, 
 it is not always easy to just try again if something did not work. Other than 
 reverting to a snapshot, this should bring you back to where you started:
+
+   
+    If things go south... 
 
     # kubeadm reset
     # apt remove --purge kubelet kubeadm
